@@ -131,4 +131,35 @@ public class Main {
             System.out.println("Product data exported to: products_template_config.xlsx");
         }
     }
+
+        public ResponseEntity<byte[]> exportDetailsUserInMeeting(String trainingFacilityCode, String id, ParticipantQueryParamDto request, Pageable pageable) {
+        Optional<Meeting> entity = meetingRepository.findFirstByIdAndTrainingFacility_Code(UUID.fromString(id), trainingFacilityCode);
+        if (entity.isEmpty()) {
+            throw new BaseException(MeetingError.OD001);
+        }
+        var meetingInfoDto = statisticMeetingMapper.entityToDto(this.meetingRepository.getMeetingInfo(UUID.fromString(id)));
+        var event = this.eventRepository.findByMeeting_IdAndGroup_Type(UUID.fromString(id), GroupEventType.CLASSROOM);
+        if (event.isEmpty()) {
+            throw new BaseException(EventScheduleError.ESE000);
+        }
+        List<ParticipantExportDto> result = new ArrayList<>(this.paginateUser(id, request, UnpagedSorted.of(pageable.getSort())).getContent()
+                .stream()
+                .map(statisticMeetingMapper::entityToParticipantExport)
+                .toList());
+        List<String> idUserJoinMeetings = result.stream().map(ParticipantExportDto::getId).toList();
+        List<ClassMember> classMembers = this.classMemberRepository.findAllByClassroom_IdAndRole(event.get().getGroup().getId(), Role.STUDENT);
+        result.addAll(classMembers.stream()
+                .filter(item -> !idUserJoinMeetings.contains(item.getUserData().getUserId()))
+                .map(statisticMeetingMapper::entityToParticipantExport)
+                .toList());
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("info", meetingInfoDto);
+        data.put("data", result);
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .header("Content-Disposition", this.getFileNameExportExcel("TKDSHV".concat(meetingInfoDto.getCode() != null ? "_".concat(meetingInfoDto.getCode()) : "")))
+                .body(excelWriter.writeFromTemplateToByte("exports/statistic_details_user_in_meeting.xlsx", data));
+    }
 }
