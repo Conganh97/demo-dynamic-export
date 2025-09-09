@@ -95,3 +95,4 @@ public class User {
         this.salary = salary;
     }
 }
+

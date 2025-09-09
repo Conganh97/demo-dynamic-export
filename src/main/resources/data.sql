@@ -4,3 +4,4 @@ INSERT INTO users (username, email, full_name, department, status, salary) VALUE
 ('bob.wilson', 'bob.wilson@company.com', 'Bob Wilson', 'IT', 'INACTIVE', 80000.00),
 ('alice.brown', 'alice.brown@company.com', 'Alice Brown', 'FINANCE', 'ACTIVE', 70000.00),
 ('charlie.davis', 'charlie.davis@company.com', 'Charlie Davis', 'IT', 'ACTIVE', 85000.00);
+

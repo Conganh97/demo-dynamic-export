@@ -24,3 +24,4 @@ public interface ExportHistoryRepository extends JpaRepository<ExportHistory, Lo
     @Query("SELECT e FROM ExportHistory e WHERE e.status = 'PROCESSING' AND e.timeRequest < :stuckTime")
     List<ExportHistory> findStuckProcessingExports(LocalDateTime stuckTime);
 }
+
