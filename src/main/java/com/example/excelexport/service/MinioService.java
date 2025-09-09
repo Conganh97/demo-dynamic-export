@@ -76,6 +76,49 @@ public class MinioService {
         }
     }
     
+    public String uploadJsonFile(String requestId, String exportType, String jsonData) {
+        try {
+            String fileName = generateJsonFileName(requestId, exportType);
+            String objectPath = "json-exports/" + fileName;
+            byte[] jsonBytes = jsonData.getBytes("UTF-8");
+            
+            minioClient.putObject(PutObjectArgs.builder()
+                    .bucket(bucketName)
+                    .object(objectPath)
+                    .stream(new ByteArrayInputStream(jsonBytes), jsonBytes.length, -1)
+                    .contentType("application/json")
+                    .build());
+            
+            logger.info("Successfully uploaded JSON file: {} to MinIO", objectPath);
+            return objectPath;
+            
+        } catch (Exception e) {
+            logger.error("Failed to upload JSON file to MinIO for request: {}", requestId, e);
+            throw new RuntimeException("Failed to upload JSON file to MinIO", e);
+        }
+    }
+    
+    public String uploadJsonFile(String requestId, String exportType, byte[] jsonData) {
+        try {
+            String fileName = generateJsonFileName(requestId, exportType);
+            String objectPath = "json-exports/" + fileName;
+            
+            minioClient.putObject(PutObjectArgs.builder()
+                    .bucket(bucketName)
+                    .object(objectPath)
+                    .stream(new ByteArrayInputStream(jsonData), jsonData.length, -1)
+                    .contentType("application/json")
+                    .build());
+            
+            logger.info("Successfully uploaded JSON file: {} to MinIO", objectPath);
+            return objectPath;
+            
+        } catch (Exception e) {
+            logger.error("Failed to upload JSON file to MinIO for request: {}", requestId, e);
+            throw new RuntimeException("Failed to upload JSON file to MinIO", e);
+        }
+    }
+    
     public InputStream downloadFile(String filePath) {
         try {
             return minioClient.getObject(GetObjectArgs.builder()
@@ -129,6 +172,11 @@ public class MinioService {
     private String generateFileName(String requestId, String exportType) {
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
         return String.format("%s_%s_%s.xlsx", exportType.toLowerCase(), requestId, timestamp);
+    }
+    
+    private String generateJsonFileName(String requestId, String exportType) {
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+        return String.format("%s_%s_%s.json", exportType.toLowerCase(), requestId, timestamp);
     }
 }
 

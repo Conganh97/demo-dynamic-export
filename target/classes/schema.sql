@@ -17,3 +17,4 @@ CREATE INDEX IF NOT EXISTS idx_export_history_request_id ON export_history(reque
 CREATE INDEX IF NOT EXISTS idx_export_history_type ON export_history(export_type);
 CREATE INDEX IF NOT EXISTS idx_export_history_status ON export_history(status);
 CREATE INDEX IF NOT EXISTS idx_export_history_time ON export_history(time_request);
+
