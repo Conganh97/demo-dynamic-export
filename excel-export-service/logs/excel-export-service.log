@@ -1,0 +1,72 @@
+2025-09-12 00:00:02 [main] INFO  c.e.e.ExcelExportServiceApplication - Starting ExcelExportServiceApplication using Java 17.0.1 with PID 22052 (C:\Users\anhbc\OneDrive\Máy tính\excel\demo-dynamic-export\excel-export-service\target\classes started by anhbc in C:\Users\anhbc\OneDrive\Máy tính\excel\demo-dynamic-export\excel-export-service)
+2025-09-12 00:00:02 [main] DEBUG c.e.e.ExcelExportServiceApplication - Running with Spring Boot v3.1.5, Spring v6.0.13
+2025-09-12 00:00:02 [main] INFO  c.e.e.ExcelExportServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-12 00:00:02 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-12 00:00:02 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 1 JPA repository interfaces.
+2025-09-12 00:00:03 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-09-12 00:00:03 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-12 00:00:03 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2025-09-12 00:00:03 [main] INFO  o.a.c.c.C.[.[.[/excel-service] - Initializing Spring embedded WebApplicationContext
+2025-09-12 00:00:03 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1456 ms
+2025-09-12 00:00:03 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-09-12 00:00:03 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-09-12 00:00:03 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-09-12 00:00:03 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-09-12 00:00:04 [main] DEBUG c.e.e.config.RequestLoggingConfig$1 - Filter 'requestLoggingFilter' configured for use
+2025-09-12 00:00:04 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-12 00:00:04 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.13.Final
+2025-09-12 00:00:04 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-09-12 00:00:04 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-12 00:00:04 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-12 00:00:05 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-09-12 00:00:05 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-12 00:00:06 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-12 00:00:06 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/excel-service'
+2025-09-12 00:00:06 [main] INFO  c.e.e.ExcelExportServiceApplication - Started ExcelExportServiceApplication in 4.627 seconds (process running for 5.387)
+2025-09-12 00:00:11 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/excel-service] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-12 00:00:11 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-09-12 00:00:11 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-09-12 00:00:11 [http-nio-8080-exec-1] INFO  c.e.e.config.RequestLoggingConfig$1 - INCOMING REQUEST - Thread:http-nio-8080-exec-1, Method: GET, URI: /excel-service/api/excel/export/employees, Params: null
+2025-09-12 00:00:11 [http-nio-8080-exec-1] INFO  c.e.e.s.GenericExcelExportService - 🚀 Starting export - TaskId: d7871e4c-407d-49eb-a023-e0412537a1c9, Type: employees, Thread: http-nio-8080-exec-1, Timeout: 1s
+2025-09-12 00:00:11 [ForkJoinPool.commonPool-worker-1] INFO  c.e.e.s.GenericExcelExportService - 🔄 Processing export in worker thread - TaskId: d7871e4c-407d-49eb-a023-e0412537a1c9, Worker Thread: ForkJoinPool.commonPool-worker-1
+2025-09-12 00:00:11 [ForkJoinPool.commonPool-worker-1] DEBUG org.jxls.template.SimpleExporter - SPI org.jxls.util.ServiceFactory => org.jxls.util.ServiceFactoryDefaultImpl@429f0038
+2025-09-12 00:00:11 [ForkJoinPool.commonPool-worker-1] INFO  org.jxls.template.SimpleExporter - you may change the SPI on file: META-INF/services/org.jxls.util.ServiceFactory
+2025-09-12 00:00:11 [ForkJoinPool.commonPool-worker-1] DEBUG org.jxls.template.SimpleExporter - SPI org.jxls.util.JxlsConfigProvider => org.jxls.util.JxlsConfigProviderImpl@66a5788d
+2025-09-12 00:00:11 [ForkJoinPool.commonPool-worker-1] INFO  org.jxls.template.SimpleExporter - you may change the SPI on file: META-INF/services/org.jxls.util.JxlsConfigProvider
+2025-09-12 00:00:11 [ForkJoinPool.commonPool-worker-1] INFO  org.jxls.util.TransformerFactory - Loading transformer by class org.jxls.transform.poi.PoiTransformer
+2025-09-12 00:00:11 [ForkJoinPool.commonPool-worker-1] DEBUG org.jxls.util.TransformerFactory - Transformer class is org.jxls.transform.poi.PoiTransformer
+2025-09-12 00:00:12 [ForkJoinPool.commonPool-worker-1] DEBUG org.jxls.template.SimpleExporter - SPI org.jxls.expression.ExpressionEvaluatorFactory => org.jxls.expression.ExpressionEvaluatorFactoryJexlImpl@53ff225b
+2025-09-12 00:00:12 [ForkJoinPool.commonPool-worker-1] INFO  org.jxls.template.SimpleExporter - you may change the SPI on file: META-INF/services/org.jxls.expression.ExpressionEvaluatorFactory
+2025-09-12 00:00:12 [ForkJoinPool.commonPool-worker-1] INFO  c.e.e.s.GenericExcelExportService - 📊 Excel data generated in 848ms - TaskId: d7871e4c-407d-49eb-a023-e0412537a1c9, Worker Thread: ForkJoinPool.commonPool-worker-1, File: employees_export_20250912_000012.xlsx
+2025-09-12 00:00:12 [ForkJoinPool.commonPool-worker-1] INFO  c.e.e.s.GenericExcelExportService - ✅ Export COMPLETED immediately after 856ms - TaskId: d7871e4c-407d-49eb-a023-e0412537a1c9, Handler Thread: ForkJoinPool.commonPool-worker-1
+2025-09-12 00:00:12 [http-nio-8080-exec-3] INFO  c.e.e.config.RequestLoggingConfig$1 - 📤 REQUEST COMPLETED - Thread:http-nio-8080-exec-3, Method: GET, URI: /excel-service/api/excel/export/employees, Params: null
+2025-09-12 00:01:18 [http-nio-8080-exec-6] INFO  c.e.e.config.RequestLoggingConfig$1 - INCOMING REQUEST - Thread:http-nio-8080-exec-6, Method: GET, URI: /excel-service/api/excel/export/employees, Params: count=10000
+2025-09-12 00:01:18 [http-nio-8080-exec-6] INFO  c.e.e.s.GenericExcelExportService - 🚀 Starting export - TaskId: 1ef84d83-cd52-4cc1-826a-783cbd3de638, Type: employees, Thread: http-nio-8080-exec-6, Timeout: 1s
+2025-09-12 00:01:18 [ForkJoinPool.commonPool-worker-2] INFO  c.e.e.s.GenericExcelExportService - 🔄 Processing export in worker thread - TaskId: 1ef84d83-cd52-4cc1-826a-783cbd3de638, Worker Thread: ForkJoinPool.commonPool-worker-2
+2025-09-12 00:01:18 [ForkJoinPool.commonPool-worker-2] INFO  c.e.e.s.GenericExcelExportService - 💤 Simulating slow processing for 10000 records - TaskId: 1ef84d83-cd52-4cc1-826a-783cbd3de638
+2025-09-12 00:01:19 [CompletableFutureDelayScheduler] WARN  c.e.e.s.GenericExcelExportService - ⏰ Export TIMEOUT after 1011ms - TaskId: 1ef84d83-cd52-4cc1-826a-783cbd3de638, Handler Thread: CompletableFutureDelayScheduler, Starting async processing
+2025-09-12 00:01:19 [CompletableFutureDelayScheduler] INFO  c.e.e.s.GenericExcelExportService - 🔀 Starting ASYNC export processing - TaskId: 1ef84d83-cd52-4cc1-826a-783cbd3de638, Async Thread: CompletableFutureDelayScheduler
+2025-09-12 00:01:19 [CompletableFutureDelayScheduler] INFO  org.jxls.util.TransformerFactory - Loading transformer by class org.jxls.transform.poi.PoiTransformer
+2025-09-12 00:01:19 [CompletableFutureDelayScheduler] DEBUG org.jxls.util.TransformerFactory - Transformer class is org.jxls.transform.poi.PoiTransformer
+2025-09-12 00:01:19 [CompletableFutureDelayScheduler] INFO  c.e.e.s.GenericExcelExportService - 📊 Async Excel data generated in 58ms - TaskId: 1ef84d83-cd52-4cc1-826a-783cbd3de638, Async Thread: CompletableFutureDelayScheduler
+2025-09-12 00:01:19 [CompletableFutureDelayScheduler] INFO  c.e.e.s.GenericExcelExportService - ☁️ Uploading to MinIO - TaskId: 1ef84d83-cd52-4cc1-826a-783cbd3de638, File: employees_export_20250912_000119.xlsx, Thread: CompletableFutureDelayScheduler
+2025-09-12 00:01:19 [CompletableFutureDelayScheduler] ERROR c.e.e.s.GenericExcelExportService - 💥 ASYNC export FAILED after 147ms - TaskId: 1ef84d83-cd52-4cc1-826a-783cbd3de638, Thread: CompletableFutureDelayScheduler, Error: Error uploading file to MinIO
+2025-09-12 00:01:19 [http-nio-8080-exec-7] INFO  c.e.e.config.RequestLoggingConfig$1 - 📤 REQUEST COMPLETED - Thread:http-nio-8080-exec-7, Method: GET, URI: /excel-service/api/excel/export/employees, Params: count=10000
+2025-09-12 00:01:20 [ForkJoinPool.commonPool-worker-2] INFO  org.jxls.util.TransformerFactory - Loading transformer by class org.jxls.transform.poi.PoiTransformer
+2025-09-12 00:01:20 [ForkJoinPool.commonPool-worker-2] DEBUG org.jxls.util.TransformerFactory - Transformer class is org.jxls.transform.poi.PoiTransformer
+2025-09-12 00:01:20 [ForkJoinPool.commonPool-worker-2] INFO  c.e.e.s.GenericExcelExportService - 📊 Excel data generated in 2082ms - TaskId: 1ef84d83-cd52-4cc1-826a-783cbd3de638, Worker Thread: ForkJoinPool.commonPool-worker-2, File: employees_export_20250912_000120.xlsx
+2025-09-12 00:01:35 [http-nio-8080-exec-8] INFO  c.e.e.config.RequestLoggingConfig$1 - INCOMING REQUEST - Thread:http-nio-8080-exec-8, Method: GET, URI: /excel-service/api/excel/export/employees, Params: count=1000000
+2025-09-12 00:01:35 [http-nio-8080-exec-8] INFO  c.e.e.s.GenericExcelExportService - 🚀 Starting export - TaskId: b32c1c3c-f99b-4b55-b70a-b0aa7e9a633a, Type: employees, Thread: http-nio-8080-exec-8, Timeout: 1s
+2025-09-12 00:01:35 [ForkJoinPool.commonPool-worker-2] INFO  c.e.e.s.GenericExcelExportService - 🔄 Processing export in worker thread - TaskId: b32c1c3c-f99b-4b55-b70a-b0aa7e9a633a, Worker Thread: ForkJoinPool.commonPool-worker-2
+2025-09-12 00:01:35 [ForkJoinPool.commonPool-worker-2] INFO  c.e.e.s.GenericExcelExportService - 💤 Simulating slow processing for 1000000 records - TaskId: b32c1c3c-f99b-4b55-b70a-b0aa7e9a633a
+2025-09-12 00:01:36 [CompletableFutureDelayScheduler] WARN  c.e.e.s.GenericExcelExportService - ⏰ Export TIMEOUT after 1050ms - TaskId: b32c1c3c-f99b-4b55-b70a-b0aa7e9a633a, Handler Thread: CompletableFutureDelayScheduler, Starting async processing
+2025-09-12 00:01:36 [CompletableFutureDelayScheduler] INFO  c.e.e.s.GenericExcelExportService - 🔀 Starting ASYNC export processing - TaskId: b32c1c3c-f99b-4b55-b70a-b0aa7e9a633a, Async Thread: CompletableFutureDelayScheduler
+2025-09-12 00:01:36 [CompletableFutureDelayScheduler] INFO  org.jxls.util.TransformerFactory - Loading transformer by class org.jxls.transform.poi.PoiTransformer
+2025-09-12 00:01:36 [CompletableFutureDelayScheduler] DEBUG org.jxls.util.TransformerFactory - Transformer class is org.jxls.transform.poi.PoiTransformer
+2025-09-12 00:01:36 [CompletableFutureDelayScheduler] INFO  c.e.e.s.GenericExcelExportService - 📊 Async Excel data generated in 599ms - TaskId: b32c1c3c-f99b-4b55-b70a-b0aa7e9a633a, Async Thread: CompletableFutureDelayScheduler
+2025-09-12 00:01:36 [CompletableFutureDelayScheduler] INFO  c.e.e.s.GenericExcelExportService - ☁️ Uploading to MinIO - TaskId: b32c1c3c-f99b-4b55-b70a-b0aa7e9a633a, File: employees_export_20250912_000136.xlsx, Thread: CompletableFutureDelayScheduler
+2025-09-12 00:01:36 [CompletableFutureDelayScheduler] ERROR c.e.e.s.GenericExcelExportService - 💥 ASYNC export FAILED after 622ms - TaskId: b32c1c3c-f99b-4b55-b70a-b0aa7e9a633a, Thread: CompletableFutureDelayScheduler, Error: Error uploading file to MinIO
+2025-09-12 00:01:36 [http-nio-8080-exec-9] INFO  c.e.e.config.RequestLoggingConfig$1 - 📤 REQUEST COMPLETED - Thread:http-nio-8080-exec-9, Method: GET, URI: /excel-service/api/excel/export/employees, Params: count=1000000
+2025-09-12 00:01:37 [ForkJoinPool.commonPool-worker-2] INFO  org.jxls.util.TransformerFactory - Loading transformer by class org.jxls.transform.poi.PoiTransformer
+2025-09-12 00:01:37 [ForkJoinPool.commonPool-worker-2] DEBUG org.jxls.util.TransformerFactory - Transformer class is org.jxls.transform.poi.PoiTransformer
+2025-09-12 00:01:37 [ForkJoinPool.commonPool-worker-2] INFO  c.e.e.s.GenericExcelExportService - 📊 Excel data generated in 2489ms - TaskId: b32c1c3c-f99b-4b55-b70a-b0aa7e9a633a, Worker Thread: ForkJoinPool.commonPool-worker-2, File: employees_export_20250912_000137.xlsx
